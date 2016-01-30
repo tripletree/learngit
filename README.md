@@ -153,6 +153,29 @@ master和develop分支需要与远程同步，bug、feature等分支不一定必
 	
 ## 自定义Git
 
+### 配置Git
+配置Git的时候，加上--global是针对当前用户起作用的，如果不加，那只针对当前的仓库起作用。每个仓库的Git配置文件放在 .git/config中，当前用户的Git配置文件放在用户主目录下的隐藏文件 .gitconfig中。
+
+	$ git config --global user.name <username> //设置用户名
+	$ git config --global user.email <email>  //设置用户邮箱
+	$ git config --global color.ui true //显示颜色
+	$ git config --global alias.st status //设置status的别名为st
+	$ git config --global alias.unstage 'reset HEAD' //设置‘reset HEAD’的别名为unstage
+
+	
+### 忽略特殊文件
+忽略某些文件时，要编写 .gitignore，此文件要放入版本库中，并且可以对它进行版本管理。
+忽略文件的原则：
+
++  忽略操作系统自动生成的文件，比如缩略图等
++ 忽略编译生成的中间文件、可执行文件等
++ 忽略自己的带有敏感信息的配置文件，如存放口令的配置文件
+
+[reference](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
+
+
+
+
 
 
 
