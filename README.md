@@ -1,4 +1,4 @@
-#Git
+# Git Learning Notes
 
 Git是一款免费开源的分布式版本控制系统，由Linux系统的创始人Linus开发。用来记录项目的变化。
 
@@ -146,10 +146,13 @@ master和develop分支需要与远程同步，bug、feature等分支不一定必
 	$ git tag -a <tagname> -m "infomation" //指定标签信息
 	$ git tag -s <tagname> -m "infomation" //用PGP签名标签
 	
-	$ git push origin <tagname> //推送某个本地标签
+	$ git push origin <tagname> //推送某个本地标签到远程库
 	$ git push origin --tags //推送全部未推送过的标签
 	$ git tag -d <tagname> //删除某个本地标签
 	$ git push origin :refs/tags/<tagname>//删除一个远程标签
+	
+## 自定义Git
+
 
 
 
