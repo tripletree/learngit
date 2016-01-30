@@ -115,20 +115,42 @@ github给出的地址有：https地址和ssh地址
 	origin remote_location(push)
 	
 ### 推送分支
-	$ git push origin <branch_name> //把分支上的本地提交推送到远程库
+	$ git push origin <branch_name> //把本地某分支的提交推送到远程库，如果远程库没有此分支，则会创建一个
 
-master和develop分支需要与远程同步，bug、feature等分支不一定必要推送到远程。
+master和develop分支需要与远程同步，bug、feature等分支不一定必要推送到远程。多人协作时的工作模式是，试图推送自己的修改，如果推送失败，因为远程分支比本地更新，需要先用 
+
+	$ git pull 
+
+试图合并, 此前需要将本地分支和远程分支建立链接：
+
+	$ git branch --set-upstream branch-name origin/branch-name
+
+如果合并有冲突，则解决冲突，在本地提交，再推送。
 
 ### 抓取分支
-多人协作时，大家都会向master和develop分支上推送各自的修改。首先克隆远程库到本地，默认情况下只能看到master分支，想要在develop分支上开发，创建远程库origin的develop分支到本地：
+多人协作时，大家都会向master和develop分支上推送各自的修改。首先克隆远程库到本地，默认情况下只能看到master分支，想要在某个branch上开发，创建远程库origin的某个branch到本地：
 
-	$ git checkout -b
+	$ git checkout -b branch_name origin/branch_name
 
-	
+	$ git fetch （origin branch_name）//从远程库取回更新到本地
 
-	$ git fetch 
 
 ## 标签管理
+发布一个版本时，通常先在版本库中打一个标签。去某个标签的版本就是把打那个标签的时刻的历史版本取出来。标签是版本库某个时刻的快照。
+
+先切换到需要打标签的分支上，然后用以下命令
+
+	$ git tag <tagname> (commit_id) //默认在HEAD处，也可以加上commit_id
+	$ git tag //查看所有标签
+	$ git show <tagname> //查看某个标签的信息
+	$ git tag -a <tagname> -m "infomation" //指定标签信息
+	$ git tag -s <tagname> -m "infomation" //用PGP签名标签
+	
+	$ git push origin <tagname> //推送某个本地标签
+	$ git push origin --tags //推送全部未推送过的标签
+	$ git tag -d <tagname> //删除某个本地标签
+	$ git push origin :refs/tags/<tagname>//删除一个远程标签
+
 
 
  
