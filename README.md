@@ -29,7 +29,7 @@ Git是一款免费开源的分布式版本控制系统，由Linux系统的创始
 
 	$ git add file //把文件从工作区添加到暂存区，开始追踪。
 	$ git add filename1 filename2 //可多次使用，添加多个文件 
-	$ git commit //把文件添加到仓库
+	$ git commit -m“commit comments”//把文件添加到仓库
 	
 查看文件修改的内容
 
